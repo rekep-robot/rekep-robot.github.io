@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ReKep: Spatio-Temporal Reasoning of Relational Keypoint Constraints for Robotic Manipulation">
+  <meta name="keywords" content="Robotic Manipulation, Structural Representation, Model-based Planning, Foundation Models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReKep | Spatio-Temporal Reasoning of Relational Keypoint Constraints for Robotic Manipulation</title>
+
+  <!-- Thumbnail for social media sharing -->
+  <meta property="og:image" content="media/thumbnail.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="media/thumbnail.jpg" type="image/jpeg">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+  </script>
+
+  <script>
+    function updateInTheWild() {
+      var task = document.getElementById("inthewild-video-menu").value;
+
+      console.log("updateInTheWild", task)
+
+      var video = document.getElementById("inthewild-video");
+      video.src = "media/videos/" + 
+                  task + 
+                  ".m4v"
+      video.play();
+    }
+
+    function updateBimanual() {
+      var task = document.getElementById("bimanual-video-menu").value;
+
+      console.log("updateBimanual", task)
+
+      var video = document.getElementById("bimanual-video");
+      video.src = "media/videos/" + 
+                  task + 
+                  ".m4v"
+      video.play();
+    }
+
+    function updateClothes() {
+      var task = document.getElementById("clothes-video-menu").value;
+
+      console.log("updateclothes", task)
+
+      var img = document.getElementById("clothes-img");
+      img.src = "media/fold-strategies/" + 
+                  task + 
+                  ".jpeg"
+
+      var video = document.getElementById("clothes-video");
+      video.src = "media/videos/fold-" + 
+                  task + 
+                  ".mp4"
+      video.play();
+    }
+  </script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="stylesheet" href="./static/source_serif_4.css">
+  <link rel="stylesheet" href="./static/source_sans_3.css">  
+  <link rel="stylesheet" href="./static/academicons.min.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/fontawesome.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/brands.css">
+  <link rel="stylesheet" href="./static/fontawesome/css/light.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateInTheWild();updateBimanual();">
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ReKep: Spatio-Temporal Reasoning of Relational<br>Keypoint Constraints for Robotic Manipulation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank" href="https://huangwl18.github.io/">Wenlong Huang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://www.chenwangjeremy.net/">Chen Wang</a><sup>1*</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://yunzhuli.github.io/">Yunzhu Li</a><sup>2*</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://ai.stanford.edu/~zharu/">Ruohan Zhang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a target="_blank" href="https://profiles.stanford.edu/fei-fei-li">Li Fei-Fei</a><sup>1</sup>
+            </span>
+          </div>
+          <div class="is-size-5 affiliation">
+            <sup>1</sup>Stanford University,
+            <sup>2</sup>Columbia University
+          </div>
+          <br>
+          <div class="affiliation-note">
+            <sup>*</sup> indicates equal contributions
+          </div>
+          <div class="button-container">
+            <a href="./rekep.pdf" target="_blank" class="button"><i class="fa-light fa-file"></i>&emsp14;PDF</a>
+            <a href="http://arxiv.org/abs/2409.01652" target="_blank" class="button"><i class="ai ai-arxiv"></i>&emsp14;arXiv</a>
+            <a href="https://youtu.be/2S8YhBdLdww" target="_blank" class="button"><i class="fa-light fa-film"></i>&emsp14;Video</a>
+            <a href="https://x.com/wenlong_huang/status/1829135436717142319" target="_blank" class="button"><i class="fa-brands fa-x-twitter"></i>&emsp14;tl;dr</a>
+            <a href="https://github.com/huangwl18/ReKep" target="_blank" class="button"><i class="fa-light fa-code"></i>&emsp14;Code</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered  is-centered">
+          <video id="teaser" autoplay muted loop controls height="100%" width="100%">
+            <source src="media/videos/teaser.mp4"
+                    type="video/mp4">
+          </video>
+          </br>
+        </div>
+        <br>
+        <h2 class="subtitle has-text-centered">
+        Large vision models and vision-language models can generate keypoint-based constraints, which can be optimized to achieve multi-stage, in-the-wild, bimanual, and reactive behaviors, without task-specific training or environment models.
+        </h2>
+      </div>
+    </div>
+  </div>
+
+<div class="container is-max-widescreen">
+<div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+    <h2 class="title is-3">Abstract</h2>
+    <div class="content has-text-justified">
+      <p>
+        Representing robotic manipulation tasks as constraints that associate
+the robot and the environment is a promising way to encode desired robot behaviors. However, it remains unclear how to formulate the constraints such that
+they are 1) versatile to diverse tasks, 2) free of manual labeling, and 3) optimizable by off-the-shelf solvers to produce robot actions in real-time. In this work, we
+introduce Relational Keypoint Constraints (ReKep), a visually-grounded representation for constraints in robotic manipulation. Specifically, ReKep is expressed
+as Python functions mapping a set of 3D keypoints in the environment to a numerical cost. We demonstrate that by representing a manipulation task as a sequence
+of Relational Keypoint Constraints, we can employ a hierarchical optimization
+procedure to solve for robot actions (represented by a sequence of end-effector
+poses in SE(3)) with a perception-action loop at a real-time frequency. Furthermore, in order to circumvent the need for manual specification of ReKep for each
+new task, we devise an automated procedure that leverages large vision models
+and vision-language models to produce ReKep from free-form language instructions and RGB-D observation. We present system implementations on a mobile
+single-arm platform and a stationary dual-arm platform that can perform a large
+variety of manipulation tasks, featuring multi-stage, in-the-wild, bimanual, and
+reactive behaviors, all without task-specific data or environment models.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Walkthrough Video</h2>
+  <div class="publication-video">
+      <iframe src="https://www.youtube.com/embed/2S8YhBdLdww" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Overview of ReKep</h2>
+  <img src="media/figures/method.jpg" class="method-image" />
+  <p class="content has-text-justified">Given RGB-D observation and free-form language instruction, DINOv2
+    is used to propose keypoint candidates on fine-grained meaningful regions in the scene. The image overlaid
+    with keypoints and the instruction are fed into GPT-4o to generate a series of ReKep constraints as python
+    programs that specify desired relations between keypoints at different stages of the task and any
+    requirement on the transitioning behaviors. Finally, a constrained optimization solver is used to obtain a
+    dense sequence of end-effector actions in SE(3), subject to the generated constraints.
+    <b>The entire pipeline does not involve any additional training or any task-specific data.</b>
+  </p>
+</div>
+
+<hr class="rounded">
+<div class="rows">
+  <h2 class="title is-3">Closed-Loop Replanning across Multiple Stages</h2>
+
+  <p class="content has-text-justified">Since keypoints are tracked in real-time, the system can replan its actions in closed loop, both <i>within stages</i> and <i>across stages</i>.
+    Here, the operator randomly perturbs the objects and the robot, but the robot can quickly react to it.
+    Note that after the robot tilts the teapot, if at this moment the cup is moved away from the robot, it would restore the teapot to be upright and attempt the pouring action again.
+  Real-time solution is visualized on the right.</p>
+  
+  <div class="columns">
+    <div class="column has-text-centered">
+      <video id="dist1"
+        controls autoplay loop muted
+        width="100%">
+        <source src="media/videos/pour-tea-dist.m4v" 
+        type="video/mp4">
+      </video>
+    </div>
+  </div>
+</div>
+
+<hr class="rounded">
+
+<div class="rows">
+  <h2 class="title is-3">Bimanual Manipulation</h2>
+  <p class="content has-text-justified">
+    Bimanual tasks investigated in the paper. Select a task to see its video and solution visualization.
+  </p>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="select is-rounded">     
+          <select id="bimanual-video-menu" onchange="updateBimanual()">
+          <option value="pack-shoes" selected="selected">Pack Shoes</option>
+          <option value="collaborative-folding">Collaborative Folding</option>
+          <option value="fold-sweater">Fold Sweater</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column has-text-centered">
+        <p style="text-align:center;">
+          <video id="bimanual-video" width="100%" height="100%" controls autoplay loop muted>
+            <source src="media/videos/pour-tea-dist.m4v" type="video/mp4">
+          </video>
+        </p>
+      </div>
+    </div>
+</div>
+
+<hr class="rounded">
+
+<div class="rows">
+  <h2 class="title is-3">In-The-Wild Manipulation</h2>
+  <p class="content has-text-justified">
+    In-the-wild tasks investigated in the paper. Select a task to see its video and solution visualization.
+  </p>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="select is-rounded">     
+          <select id="inthewild-video-menu" onchange="updateInTheWild()">
+            <option value="stow-book" selected="selected">Stow Book</option>
+          <option value="pour-tea">Pour Tea</option>
+          <option value="tape-box">Tape Box</option>
+          <option value="recycle-can">Recycle Can</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="columns">
+      <div class="column has-text-centered">
+        <p style="text-align:center;">
+          <video id="inthewild-video" width="100%" height="100%" controls autoplay loop muted>
+            <source src="media/videos/pour-tea-dist.m4v" type="video/mp4">
+          </video>
+        </p>
+      </div>
+    </div>
+</div>
+
+
+
+<hr class="rounded">
+
+<div class="rows">
+  <h2 class="title is-3">Folding Clothes with Novel Strategies</h2>
+    <p class="content has-text-justified">
+      The system can also generate novel strategies for the same task but under different scenarios.
+      Specifically, we investigate whether the same system can fold different types of clothing items.
+      Interestingly, we observe drastically different strategies across the clothing categories, many of which align with how humans might fold each garment.
+      Select a garment to see its folding strategy and its video.
+      The coloring of the keypoints indicates the folding order, where red keypoints are aligned first and the blue keypoints are aligned subsequently.
+    </p>
+    <div class="columns">
+      <div class="column has-text-centered">
+        <div class="select is-rounded">     
+          <select id="clothes-video-menu" onchange="updateClothes()">
+            <option value="sweater" selected="selected">Sweater</option>
+          <option value="shirt">Shirt</option>
+          <option value="hoodie">Hoodie</option>
+          <option value="vest">Vest</option>
+          <option value="dress">Dress</option>
+          <option value="pants">Pants</option>
+          <option value="shorts">Shorts</option>
+          <option value="scarf">Scarf</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="columns">
+      <div class="column has-text-centered">
+        <p style="text-align:center;">
+          <img id="clothes-img" width="60%" src="media/fold-strategies/sweater.jpeg" class="method-image" />
+        </p>
+      </div>
+      <div class="column has-text-centered">
+        <p style="text-align:center;">
+          <video id="clothes-video" width="100%" height="100%" controls autoplay loop muted>
+            <source src="media/videos/fold-sweater.mp4" type="video/mp4">
+          </video>
+        </p>
+      </div>
+    </div>
+</div>
+
+<hr class="rounded">
+<h2 class="title is-3">Acknowledgments</h2>
+<p>
+  This work is partially supported by Stanford Institute for Human-Centered Artificial Intelligence, ONR MURI N00014-21-1-2801, and Schmidt Sciences. Ruohan Zhang is partially supported by Wu Tsai Human Performance Alliance Fellowship. The bimanual hardware is partially supported by Stanford TML. We would like to thank the anonymous reviewers, Albert Wu, Yifan Hou, Adrien Gaidon, Adam Harley, Christopher Agia, Edward Schmerling, Marco Pavone, Yunfan Jiang, Yixuan Wang, Sirui Chen, Chengshu Li, Josiah Wong, Wensi Ai, Weiyu Liu, Mengdi Xu, Yihe Tang, Chelsea Ye, Mijiu Mili, and the members of the Stanford Vision and Learning Lab for fruitful discussions, helps on experiments, and support.
+</p>
+<hr class="rounded">
+<h2 class="title is-3">BibTeX</h2>
+<p class="bibtex">
+    @article{huang2024rekep, <br>
+    &nbsp;&nbsp;title = {ReKep: Spatio-Temporal Reasoning of Relational Keypoint Constraints for Robotic Manipulation}, <br>
+    &nbsp;&nbsp;author = {Huang, Wenlong and Wang, Chen and Li, Yunzhu and Zhang, Ruohan and Fei-Fei, Li}, <br>
+    &nbsp;&nbsp;journal = {arXiv preprint arXiv:2409.01652}, <br>
+    &nbsp;&nbsp;year = {2024} <br>
+    }
+</p>
+
+</section>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://nerfies.github.io">Nerfies</a>,
+            <a href="https://dex-cap.github.io">DexCap</a>,
+            and <a href="https://transic-robot.github.io">TRANSIC</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
